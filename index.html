@@ -25,19 +25,18 @@
         .header { margin-bottom: 50px; }
         .header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 50px;
+            font-size: clamp(30px, 8vw, 50px);
             color: #fff;
             letter-spacing: 5px;
-            margin-bottom: 0;
             text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
         }
-        .header p { color: #38bdf8; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
+        .header p { color: #38bdf8; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-top: 10px; }
 
-        /* Описание */
-        .intro { margin-bottom: 40px; font-weight: 300; font-size: 18px; }
-        .intro b { color: #fff; }
+        /* Описание геймплея */
+        .intro { margin-bottom: 40px; font-weight: 300; font-size: 18px; color: #fff; }
+        .intro span { color: #38bdf8; font-weight: bold; }
 
-        /* Статистика (круги/цифры) */
+        /* Статистика */
         .stats {
             display: flex; justify-content: space-around; margin-bottom: 50px;
             border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -46,41 +45,44 @@
         .stat-item h3 { font-size: 24px; color: #fff; }
         .stat-item p { font-size: 12px; color: #38bdf8; text-transform: uppercase; }
 
-        /* Карточки */
+        /* Карточки способностей */
         .grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px; margin-bottom: 50px;
         }
         .feature-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 25px; border-radius: 12px; text-align: left;
+            padding: 25px; border-radius: 15px; text-align: left;
             transition: 0.3s;
         }
         .feature-card:hover { background: rgba(56, 189, 248, 0.05); border-color: #38bdf8; }
-        .feature-card h4 { color: #fff; margin-bottom: 10px; font-size: 14px; text-transform: uppercase; }
-        .feature-card p { font-size: 13px; color: #9ca3af; }
+        .feature-card h4 { color: #fff; margin-bottom: 10px; font-size: 14px; text-transform: uppercase; display: flex; align-items: center; }
+        .feature-card h4::before { content: '★'; color: #38bdf8; margin-right: 10px; }
+        .feature-card p { font-size: 14px; color: #9ca3af; }
 
         /* Блок управления */
         .controls {
-            background: rgba(0, 0, 0, 0.3); padding: 30px; border-radius: 20px;
+            background: rgba(16, 29, 53, 0.6); padding: 30px; border-radius: 20px;
             margin-bottom: 50px; border: 1px dashed rgba(56, 189, 248, 0.3);
         }
         .controls h2 { font-size: 14px; color: #38bdf8; margin-bottom: 20px; text-transform: uppercase; }
-        .keys { display: flex; justify-content: center; gap: 20px; align-items: center; }
-        .key {
-            background: #111827; border: 1px solid #374151; padding: 10px 15px;
-            border-radius: 5px; font-family: monospace; color: #fff; font-size: 12px;
+        .key-box {
+            display: inline-block;
+            background: #111827; border: 2px solid #38bdf8; padding: 15px 25px;
+            border-radius: 10px; color: #fff; font-family: 'Orbitron', sans-serif;
+            font-size: 20px; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
         }
+        .control-desc { margin-top: 15px; font-size: 14px; color: #9ca3af; }
 
-        /* Кнопка */
+        /* Кнопка скачивания */
         .download-btn {
             display: inline-block; background: #38bdf8; color: #050b18;
-            padding: 15px 40px; border-radius: 50px; text-decoration: none;
+            padding: 18px 50px; border-radius: 50px; text-decoration: none;
             font-weight: bold; font-size: 18px; text-transform: uppercase;
             box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); transition: 0.3s;
         }
-        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(56, 189, 248, 0.6); }
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(56, 189, 248, 0.6); background: #fff; }
 
     </style>
 </head>
@@ -89,47 +91,39 @@
     <div class="container">
         <header class="header">
             <h1>SKY DUEL</h1>
-            <p>Air Combat Simulator</p>
+            <p>Учебный проект • 2026</p>
         </header>
 
         <div class="intro">
-            Велика твоя машина над бескрайним морем.<br>
-            Уклоняйся, маневрируй и <b>не дай им занять твое пространство</b>.
+            Маневрируй в небесах и выживай любой ценой.<br>
+            Собирай <span>Звёзды</span>, чтобы восстановить силы!
         </div>
 
         <div class="stats">
-            <div class="stat-item"><h3>∞</h3><p>Враги</p></div>
-            <div class="stat-item"><h3>1</h3><p>Игрок</p></div>
-            <div class="stat-item"><h3>0kb</h3><p>Установка</p></div>
-            <div class="stat-item"><h3>HTML5</h3><p>Технология</p></div>
+            <div class="stat-item"><h3>+5 HP</h3><p>За звезду</p></div>
+            <div class="stat-item"><h3>1</h3><p>Кнопка</p></div>
+            <div class="stat-item"><h3>∞</h3><p>Небо</p></div>
+            <div class="stat-item"><h3>APK</h3><p>Формат</p></div>
         </div>
 
         <div class="grid">
             <div class="feature-card">
-                <h4>Живой мир</h4>
-                <p>Море внизу, облака вокруг. Атмосфера захватывает с первых секунд.</p>
+                <h4>Механика лечения</h4>
+                <p>Каждая собранная <b>звездочка</b> моментально восстанавливает <b>+5 единиц здоровья</b>. Не пропускай их!</p>
             </div>
             <div class="feature-card">
-                <h4>Нарастающий темп</h4>
-                <p>Враги становятся быстрее. Выживает тот, кто не теряет фокус.</p>
-            </div>
-            <div class="feature-card">
-                <h4>Простое управление</h4>
-                <p>Четыре клавиши. Ничего лишнего. Сразу в бой.</p>
+                <h4>Вертикальный геймплей</h4>
+                <p>Используй прыжок, чтобы уклоняться от препятствий и ловить ценные бонусы в воздухе.</p>
             </div>
         </div>
 
         <div class="controls">
             <h2>Управление</h2>
-            <div class="keys">
-                <div><span class="key">WASD</span> — Движение</div>
-                <div><span class="key">SPACE</span> — Огонь</div>
-                <div><span class="key">P</span> — Пауза</div>
-            </div>
+            <div class="key-box">ПРОБЕЛ / ТАП</div>
+            <div class="control-desc">Нажми, чтобы совершить <b>ПРЫЖОК</b></div>
         </div>
 
-        <!-- Убедись, что файл в GitHub называется app.apk -->
-        <a href="app.apk" class="download-btn" download>Скачать игру</a>
+        <a href="app.apk" class="download-btn" download>СКАЧАТЬ ИГРУ</a>
     </div>
 
 </body>
