@@ -3,66 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Скачать приложение</title>
+    <title>Sky Defender | Официальный сайт</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f172a; /* Глубокий темно-синий */
             height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
         }
+
+        /* Декоративные круги на фоне для эффекта "реального сайта" */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+        .circle-1 { width: 300px; height: 300px; background: #38bdf8; top: -50px; left: -50px; opacity: 0.5; }
+        .circle-2 { width: 400px; height: 400px; background: #1e40af; bottom: -100px; right: -100px; opacity: 0.5; }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 400px;
+        }
+
         .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 48px 32px;
             text-align: center;
-            max-width: 350px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
-        .icon {
-            width: 80px;
-            height: 80px;
-            background: #4CAF50;
-            border-radius: 20px;
-            margin: 0 auto 1rem;
+
+        .logo-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+            margin: 0 auto 24px;
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
+            font-size: 56px;
+            font-weight: 800;
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
         }
-        h1 { font-size: 24px; margin-bottom: 10px; }
-        p { color: #666; margin-bottom: 20px; }
-        
-        .download-btn {
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .version {
             display: inline-block;
-            text-decoration: none;
-            background-color: #007bff;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background 0.3s;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
         }
+
+        .description {
+            font-size: 16px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .download-btn {
+            display: block;
+            background: #f8fafc;
+            color: #0f172a;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
         .download-btn:hover {
-            background-color: #0056b3;
+            transform: translateY(-2px);
+            background: #ffffff;
+            box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.3);
+        }
+
+        .footer-text {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="icon">A</div>
-    <h1>Моё Приложение</h1>
-    <p>Версия 1.0.1 (APK)<br>Размер: 15 МБ</p>
-    
-    <!-- ЗАМЕНИТЕ 'app.apk' НА ВАШЕ ИМЯ ФАЙЛА -->
-    <a href="app.apk" class="download-btn" download>Скачать APK</a>
-</div>
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="logo-box">S</div>
+            <h1>Sky Defender</h1>
+            <span class="version">v1.0.1 Stable</span>
+            <p class="description">Уничтожай врагов, защищай границы и стань лучшим пилотом в небесах. Доступно прямо сейчас.</p>
+            
+            <!-- Проверь название файла на GitHub -->
+            <a href="app.apk" class="download-btn" download>Скачать для Android</a>
+            
+            <p class="footer-text">© 2026 Sky Defender Studio</p>
+        </div>
+    </div>
 
 </body>
 </html>
